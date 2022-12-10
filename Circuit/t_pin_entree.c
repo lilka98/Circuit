@@ -17,9 +17,11 @@ int t_pin_entree_get_valeur(const t_pin_entree * pin)
 }
 
 void t_pin_entree_set_valeur(t_pin_entree * pin, int valeur)
-{
-	if (valeur == 0 || valeur == 1)
-		pin->valeur = valeur;
+{	if (valeur <-1 || valeur > 1) {
+		//Valeur erronée
+		return;
+	}
+	pin->valeur = valeur;
 }
 
 void t_pin_entree_relier(t_pin_entree * pin_entree, const t_pin_sortie * pin_sortie)
