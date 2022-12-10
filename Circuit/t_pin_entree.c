@@ -18,19 +18,16 @@ int t_pin_entree_get_valeur(const t_pin_entree * pin)
 
 void t_pin_entree_set_valeur(t_pin_entree * pin, int valeur)
 {
-	if (valeur <-1 || valeur > 1) {
-		//Valeur erronée
-		return;
-	}
-	pin->valeur = valeur;
+	if (valeur == 0 || valeur == 1)
+		pin->valeur = valeur;
 }
 
 void t_pin_entree_relier(t_pin_entree * pin_entree, const t_pin_sortie * pin_sortie)
 {
-	//On vérifie d'abord si on avait un lien existant
+	//On vÃ©rifie d'abord si on avait un lien existant
 	if (pin_entree->liaison != NULL) {
-		//On supprime la liaison de la pin sortie à laquelle
-		//on est présentement liés
+		//On supprime la liaison de la pin sortie Ã  laquelle
+		//on est prÃ©sentement liÃ©s
 		t_pin_sortie_supprimer_lien(pin_entree->liaison, pin_entree);
 	}
 	pin_entree->liaison = pin_sortie;
